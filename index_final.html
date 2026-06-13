@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Изграден отвътре | Дигитална книга</title>
+  <meta name="description" content="Дигитална книга за мъже между 40 и 60 години, които искат нова посока, яснота и 90-дневен план за действие." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#071426; --navy2:#10233d; --black:#070707; --white:#fff;
+      --light:#f5f7fa; --gold:#d7a84f; --gold2:#b8892f; --text:#1f2937;
+      --muted:#6b7280; --border:#e5e7eb; --danger:#b91c1c; --green:#0f766e;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Roboto,Arial,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+    img{max-width:100%;display:block}
+    h1,h2,h3{line-height:1.12;margin:0 0 18px}
+    h1{font-size:clamp(46px,8vw,92px);font-weight:900;letter-spacing:-2px}
+    h2{font-size:clamp(30px,5vw,54px);font-weight:900;letter-spacing:-.8px}
+    h3{font-size:22px;font-weight:900}
+    p{font-size:18px;margin:0 0 16px}
+    a{color:inherit}
+    .container{width:min(1120px,92%);margin:0 auto}
+    .section{padding:82px 0}
+    .section-light{background:var(--light)}
+    .dark{background:var(--navy);color:#fff}
+    .dark p{color:#e8edf5}
+    .center{text-align:center}
+    .eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:1.4px;font-size:14px;font-weight:900;margin-bottom:14px}
+    .sub{font-size:22px;color:#e8edf5;font-weight:500}
+    .muted{color:var(--muted)}
+    .highlight{color:var(--gold);font-weight:900}
+    .hero{
+      color:#fff;padding:80px 0 70px;overflow:hidden;
+      background:radial-gradient(circle at 88% 12%,rgba(215,168,79,.22),transparent 35%),
+                 linear-gradient(135deg,#071426 0%,#05070c 100%);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+    .hero .lead{font-size:23px;font-weight:500;color:#f4f6fb}
+    .hero .lead strong{display:block;font-size:36px;color:var(--gold);font-weight:900;margin-top:8px}
+    .hero-cover{width:min(470px,100%);margin:0 auto;filter:drop-shadow(0 28px 55px rgba(0,0,0,.5))}
+    .price-box{display:inline-block;margin:22px 0;padding:18px 25px;border:1px solid rgba(215,168,79,.5);border-radius:18px;background:rgba(255,255,255,.07)}
+    .price{font-size:56px;line-height:1;font-weight:900;color:var(--gold);margin:0 0 6px}
+    .cta-button{display:inline-block;background:var(--gold);color:#090909;text-decoration:none;padding:18px 34px;border-radius:999px;font-size:18px;font-weight:900;letter-spacing:.3px;box-shadow:0 16px 34px rgba(215,168,79,.34);transition:.2s ease}
+    .cta-button:hover{transform:translateY(-2px);background:var(--gold2)}
+    .cta-note{font-size:14px;color:#d1d5db;margin-top:12px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:36px}
+    .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+    .feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}
+    .card,.feature,.testimonial,.bonus,.bullet,.faq details,.pricing-card,.guarantee-box{
+      background:#fff;border:1px solid var(--border);border-radius:22px;padding:26px;box-shadow:0 12px 30px rgba(7,20,38,.07)
+    }
+    .dark .card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.13)}
+    .dark .card h3{color:var(--gold)}
+    .feature{font-weight:900;font-size:18px}
+    .feature:before,.checklist li:before,.pricing-card li:before{content:"✓";color:var(--gold2);font-weight:900;margin-right:10px}
+    .checklist{list-style:none;padding:0;margin:34px auto 0;display:grid;gap:14px;max-width:820px}
+    .checklist li{background:#fff;border:1px solid var(--border);border-radius:16px;padding:17px 22px;font-size:18px;font-weight:900;box-shadow:0 8px 20px rgba(7,20,38,.05)}
+    .pain-question{font-size:25px;font-weight:900;margin-bottom:20px}
+    .transformation{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin-top:36px}
+    .transform-box{border-radius:24px;padding:30px;background:#fff;border:1px solid var(--border)}
+    .transform-box.bad{border-left:6px solid var(--danger)}
+    .transform-box.good{border-left:6px solid var(--green)}
+    .arrow{font-size:44px;font-weight:900;color:var(--gold)}
+    .bullet{border-left:6px solid var(--gold)}
+    .dark .bullet p,
+    .dark .bullet strong{color:#111 !important}
+
+    .bonus .value{font-weight:900;color:var(--gold2);font-size:20px}
+    .total-value{font-size:28px;font-weight:900;text-align:center;margin-top:30px}
+    .testimonial h3{margin-bottom:4px}
+    .testimonial .age{font-size:15px;color:var(--muted);font-weight:700;margin-bottom:12px}
+    .note{font-size:15px;color:var(--muted);text-align:center;margin-top:22px}
+    .guarantee-box{max-width:850px;margin:0 auto;text-align:center;border:2px solid var(--gold)}
+    .guarantee-image{width:190px;margin:0 auto 22px}
+    .pricing-card{max-width:660px;margin:0 auto;text-align:center;border:2px solid var(--gold)}
+    .pricing-card ul{list-style:none;padding:0;margin:25px auto;text-align:left;max-width:430px}
+    .pricing-card li{padding:8px 0;font-weight:900}
+    .old-price{text-decoration:line-through;color:var(--muted);font-size:23px;font-weight:900}
+    .final-price{font-size:58px;color:var(--gold2);font-weight:900;margin:0 0 24px}
+    .value-stack{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0}
+    .pill{background:#fff7e6;border:1px solid #f0d393;color:#5b3b05;border-radius:999px;padding:8px 14px;font-weight:900}
+    .faq details{margin-bottom:14px}
+    .faq summary{cursor:pointer;font-size:18px;font-weight:900}
+    footer{background:#05070c;color:#fff;text-align:center;padding:36px 20px}
+    footer p{font-size:14px;color:#d1d5db;margin-bottom:8px}
+    @media (max-width:900px){
+      .hero-grid,.grid-2,.cards,.cards-3,.feature-grid,.transformation{grid-template-columns:1fr}
+      .arrow{transform:rotate(90deg);text-align:center}
+      .section{padding:58px 0}
+      .hero{padding:58px 0}
+      .hero-cover{max-width:360px}
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Авторски колектив • Психологическа методология</p>
+      <h1>ИЗГРАДЕН ОТВЪТРЕ</h1>
+      <h2 class="sub">За мъжа, който отказва да прекара следващите 20 години в живот без посока.</h2>
+      <p class="lead">Шокиращата истина, която никой не ти казва:<strong>Не си закъснял.</strong></p>
+      <p>Открий революционната психологическа методология „Изграден отвътре“, която ще ти помогне да замениш чувството за застой с ясна посока, увереност и конкретен 90-дневен план – дори ако днес не знаеш откъде да започнеш и се страхуваш да направиш промяна.</p>
+      <div class="price-box">
+        <p class="price">10 €</p>
+        <p>Еднократно плащане • Незабавен достъп</p>
+      </div>
+      <br>
+      <a href="https://payhip.com/b/sOodz" class="cta-button">ИСКАМ ПРОМЯНА</a>
+      <p class="cta-note">Дигитална книга + бонуси + 14-дневна гаранция</p>
+    </div>
+    <div>
+      <img src="cover.png" alt="Корица на книгата Изграден отвътре" class="hero-cover">
+    </div>
+  </div>
+</header>
+
+<section class="section section-light">
+  <div class="container">
+    <h2 class="center">Това звучи ли ти познато?</h2>
+    <p class="center pain-question">Ставаш, работиш, изпълняваш задълженията си… но вътре усещаш, че животът ти няма посока.</p>
+    <ul class="checklist">
+      <li>Чувстваш се заседнал</li>
+      <li>Не харесваш работата си</li>
+      <li>Страхуваш се да направиш промяна</li>
+      <li>Усещаш, че си способен на повече</li>
+      <li>Не знаеш откъде да започнеш</li>
+      <li>Годините минават, а нищо не се променя</li>
+      <li>Изгубил си ясна посока</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2">
+    <div>
+      <h2>Повечето мъже никога не признават това на глас.</h2>
+      <p>Събуждат се сутрин, отиват на работа, плащат сметки, вършат това, което трябва...</p>
+      <p>Но вътре в себе си усещат нещо, което не могат да обяснят.</p>
+      <p>Не е липса на пари. Не е липса на работа. Не е липса на хора около тях.</p>
+      <p><strong>А липса на посока. Липса на смисъл. Липса на причина да се събудят сутрин с желание и енергия.</strong></p>
+    </div>
+    <div class="card">
+      <h3>Въпросът, който не изчезва:</h3>
+      <p style="font-size:30px;font-weight:900;color:#071426;">„Това ли е всичко?“</p>
+      <p>Ако този въпрос те преследва, не си слаб. Просто е време да спреш да живееш на автопилот.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container center">
+    <h2>Проблемът не си ти.</h2>
+    <p>Проблемът не е липсата на талант.</p>
+    <p>Проблемът не е възрастта.</p>
+    <p>Проблемът не е, че си закъснял.</p>
+    <p><span class="highlight">Проблемът е, че никой никога не те е научил как да откриеш нова посока след 40.</span></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container center">
+    <p class="eyebrow">Уникалният механизъм</p>
+    <h2>Методологията „Изграден отвътре“</h2>
+    <p>Практическа система, която те води от объркване към яснота и от страх към конкретно действие.</p>
+    <div class="cards">
+      <div class="card"><h3>1. Осъзнаване</h3><p>Разбираш защо си заседнал и какво реално те държи в стария сценарий.</p></div>
+      <div class="card"><h3>2. Преоткриване</h3><p>Откриваш силните си страни, житейския си опит и скритите си активи.</p></div>
+      <div class="card"><h3>3. Изграждане</h3><p>Възстановяваш увереността си чрез малки, реални и изпълними действия.</p></div>
+      <div class="card"><h3>4. Нова посока</h3><p>Създаваш план за следващите 90 дни, без да рискуваш всичко.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container center">
+    <h2>Трансформацията</h2>
+    <div class="transformation">
+      <div class="transform-box bad">
+        <h3>ОТ:</h3>
+        <p>❌ Работа без смисъл</p>
+        <p>❌ Липса на яснота</p>
+        <p>❌ Съмнения</p>
+        <p>❌ Страх от промяна</p>
+        <p>❌ Живот на автопилот</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="transform-box good">
+        <h3>ДО:</h3>
+        <p>✅ Ясна посока</p>
+        <p>✅ Конкретен план</p>
+        <p>✅ Повече увереност</p>
+        <p>✅ Контрол над бъдещето</p>
+        <p>✅ Спокойствие</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container center">
+    <h2>Какво получаваш вътре?</h2>
+    <div class="feature-grid">
+      <div class="feature">8 подробни глави</div>
+      <div class="feature">Практически упражнения</div>
+      <div class="feature">Работни листове</div>
+      <div class="feature">Въпроси за самоанализ</div>
+      <div class="feature">30-дневен план за действие</div>
+      <div class="feature">Методологията „Изграден отвътре“</div>
+      <div class="feature">Финална стратегия за следващите 90 дни</div>
+      <div class="feature">Незабавен достъп след покупка</div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container">
+    <h2 class="center">Защо това има значение точно сега?</h2>
+    <div class="cards-3">
+      <div class="bullet"><p><strong>След 12 месеца ще бъдеш с една година по-възрастен</strong> независимо дали купиш тази книга или не. Въпросът е дали ще имаш ясна посока или същото чувство на застой.</p></div>
+      <div class="bullet"><p><strong>Не ти липсват способности. Липсва ти система.</strong> „Изграден отвътре“ ти показва как да превърнеш опита си в реална нова посока.</p></div>
+      <div class="bullet"><p><strong>Представи си как още този месец спираш да се чудиш какво да правиш с живота си</strong> и започваш да казваш: „Знам каква е следващата ми стъпка.“</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container center">
+    <h2>Получаваш и тези бонуси безплатно</h2>
+    <div class="bonus-grid">
+      <div class="bonus"><h3>Работна тетрадка „Открий своята посока“</h3><p class="value">Стойност: 17 €</p></div>
+      <div class="bonus"><h3>Шаблон за 90-дневен план</h3><p class="value">Стойност: 27 €</p></div>
+      <div class="bonus"><h3>Личен тест за самоанализ</h3><p class="value">Стойност: 19 €</p></div>
+      <div class="bonus"><h3>План за първите 30 дни</h3><p class="value">Стойност: 15 €</p></div>
+      <div class="bonus"><h3>Чеклист „Следващата ми глава“</h3><p class="value">Стойност: 9 €</p></div>
+    </div>
+    <p class="total-value">Обща стойност на бонусите: 87 €</p>
+    <p><strong>Всички бонуси са включени безплатно.</strong></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container center">
+    <h2>Какво казаха първите читатели</h2>
+    <p>Преди официалното представяне книгата беше прочетена от ограничен кръг предварителни читатели.</p>
+    <div class="cards">
+      <div class="testimonial"><h3>Николай</h3><p class="age">48 г.</p><p>„Най-силното за мен беше, че книгата не ме кара да напускам работа или да рискувам всичко. Помогна ми да видя, че първо трябва да подредя себе си, посоката си и след това да действам.“</p></div>
+      <div class="testimonial"><h3>Георги</h3><p class="age">52 г.</p><p>„Разпознах се още в първите страници. От години си мислех, че просто съм уморен, но всъщност съм живял без ясна посока. Упражненията ме накараха да си задам въпроси, които дълго съм избягвал.“</p></div>
+      <div class="testimonial"><h3>Борислав</h3><p class="age">45 г.</p><p>„Хареса ми, че книгата е практична. Не е просто мотивация, а ми даде конкретни стъпки. След прочитането вече имах идея какво да направя през следващите 30 дни.“</p></div>
+      <div class="testimonial"><h3>Виктор</h3><p class="age">43 г.</p><p>„Макар книгата да е насочена към мъже, открих много от собствените си страхове в нея. Хареса ми, че не обещава чудеса, а показва как малките решения водят до голяма промяна.“</p></div>
+    </div>
+    <p class="note">Мненията са от предварителни читатели преди официалното представяне на книгата.</p>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container center">
+    <h2>Тази книга не е изградена върху мотивационни клишета</h2>
+    <div class="cards">
+      <div class="card"><h3>Практическа психологическа методология</h3><p>Ясен процес, а не сбор от вдъхновяващи фрази.</p></div>
+      <div class="card"><h3>Фокус върху действие</h3><p>Всяка част води към упражнения, решения и стъпки.</p></div>
+      <div class="card"><h3>Реалистичен подход</h3><p>Без обещания за чудеса. Само практичен път към нова посока.</p></div>
+      <div class="card"><h3>Създадена за мъже 40–60</h3><p>За хора с отговорности, опит и нужда от безопасна промяна.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="guarantee-box">
+      <img src="waranty.png" alt="100% Money Back Guarantee" class="guarantee-image">
+      <h2>14-дневна гаранция за връщане на парите</h2>
+      <p>Ако в рамките на 14 дни прецениш, че книгата не ти е дала стойност, изпрати ни имейл и ще възстановим сумата.</p>
+      <p><strong>Без въпроси. Без риск. Без излишни условия.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container center">
+    <h2>Истинската цена не е 10 евро</h2>
+    <p>Истинската цена е да останеш още една година на същото място.</p>
+    <div class="value-stack">
+      <span class="pill">365 дни чакане</span>
+      <span class="pill">12 месеца съмнение</span>
+      <span class="pill">Без нова посока</span>
+      <span class="pill">Без ясен план</span>
+      <span class="pill">Без промяна</span>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="section">
+  <div class="container">
+    <div class="pricing-card">
+      <h2>Вземи „Изграден отвътре“ още днес</h2>
+      <p><strong>Получаваш:</strong></p>
+      <ul>
+        <li>Дигиталната книга</li>
+        <li>Всички бонуси</li>
+        <li>Работни листове</li>
+        <li>30-дневен план</li>
+        <li>90-дневна стратегия</li>
+        <li>14-дневна гаранция</li>
+      </ul>
+      <p class="old-price">Обща стойност: 97 €</p>
+      <p class="final-price">Днес: 10 €</p>
+      <a href="https://payhip.com/b/sOodz" class="cta-button">ИСКАМ ПРОМЯНА</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light faq">
+  <div class="container">
+    <h2 class="center">Често задавани въпроси</h2>
+    <details><summary>Не е ли твърде късно за мен?</summary><p>Не. Точно сега разполагаш с опит, който не си имал преди 20 години.</p></details>
+    <details><summary>Нямам време.</summary><p>Повечето упражнения изискват 15–20 минути дневно.</p></details>
+    <details><summary>Не знам какво искам.</summary><p>Именно затова книгата започва с осъзнаване и преоткриване на посоката.</p></details>
+    <details><summary>Чел съм много книги.</summary><p>Тази книга е практическа система с упражнения, работни листове и план за действие.</p></details>
+    <details><summary>Страх ме е да не се разочаровам.</summary><p>Затова имаш 14-дневна гаранция за връщане на парите.</p></details>
+    <details><summary>Подходяща ли е за мен?</summary><p>Подходяща е за мъже между 40 и 60 години, които търсят нова посока без излишен риск.</p></details>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container center">
+    <h2>Колко още години ще чакаш?</h2>
+    <p>След една година ще бъдеш с една година по-възрастен.</p>
+    <p><strong>Ще имаш ли ясна посока или същите съмнения?</strong></p>
+    <p class="price">10 €</p>
+    <a href="https://payhip.com/b/sOodz" class="cta-button">ИСКАМ ПРОМЯНА</a>
+  </div>
+</section>
+
+<footer>
+  <p>Авторски колектив</p>
+  <p>Поредица: Психологическа методология</p>
+  <p>Политика за поверителност • Условия за ползване • Контакти</p>
+  <p>© Всички права запазени.</p>
+</footer>
+
+</body>
+</html>
